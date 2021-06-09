@@ -4,7 +4,7 @@ const fetch = require('node-fetch')
 
 const admin = require('firebase-admin')
 
-const serivceAccount = require('./cowindata-6fe71-firebase-adminsdk-b8bvs-a99359f7c9.json')
+const serivceAccount = require('./firestore-demo-b40c8-firebase-adminsdk-aalvg-cf8f49cb9b.json')
 
 const moment = require('moment')
 
@@ -107,7 +107,7 @@ const loadSession = async (id) => {
                     //     .collection(center.district_name).doc(center.name.replace('/', ''))
                     //     .collection(session.date).doc(moment().format('hh:mm A')).set(session_data).then((dbresult) => { console.log("data saved -> ", dbresult) }).catch((dbError) => { console.error("Save DB Error -> " + Date.now() + " -> ", dbError) })
 
-                    db.collection('Cowin_Data').doc(session.date).collection(moment().format('hh:mm A')).doc(center.state_name).collection(center.district_name).doc(center.name.replace('/', '')).set(session_data).then((dbresult) => { console.log("data saved -> ", dbresult) }).catch((dbError) => { console.error("Save DB Error -> " + Date.now() + " -> ", dbError) })
+                    db.collection('Cowin_Data').doc(String(session.date)).collection(moment().format('hh:mm A')).doc(String(center.state_name)).collection(String(center.district_name)).doc(String(center.name.replace('/', ''))).set(session_data).then((dbresult) => { console.log("data saved -> ", dbresult) }).catch((dbError) => { console.error("Save DB Error -> " + Date.now() + " -> ", dbError) })
 
 
 
